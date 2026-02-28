@@ -8,9 +8,7 @@
             <web-module-libraries/>
             <web-module-additional-libraries/>
             <build-classes-excludes/>
-            <explicit-platform explicit-source-supported="true">
-                <java-platform>default_platform</java-platform>
-            </explicit-platform>
+            <explicit-platform explicit-source-supported="true"/>
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>
