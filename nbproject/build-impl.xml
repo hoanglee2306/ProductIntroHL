@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*** GENERATED FROM project.xml - DO NOT EDIT  ***
+***         EDIT ../build.xml INSTEAD         ***
+-->
+<project name="ProductIntroHL-impl" basedir="..">
+    <fail message="Please build using Ant 1.7.1 or higher.">
+        <condition>
+            <not>
+                <antversion atleast="1.7.1"/>
+            </not>
+        </condition>
+    </fail>
+
+    <property file="nbproject/private/private.properties"/>
+    <property file="${user.properties.file}"/>
+    <property file="nbproject/project.properties"/>
+
+    <condition property="no.deps">
+        <istrue value="${no.dependencies}"/>
+    </condition>
+
+    <!-- Classpath -->
+    <path id="compile.classpath">
+        <pathelement path="${javac.classpath}"/>
+        <pathelement path="${j2ee.platform.classpath}"/>
+    </path>
+
+    <path id="test.classpath">
+        <pathelement path="${build.test.classes.dir}"/>
+        <pathelement path="${javac.test.classpath}"/>
+    </path>
+
+    <!-- Initialize build directories -->
+    <target name="-init-macrodef-property">
+        <macrodef name="property" uri="http://www.netbeans.org/ns/j2ee-projectruntime/1">
+            <attribute name="name"/>
+            <attribute name="value"/>
+            <sequential>
+                <property name="@{name}" value="@{value}"/>
+            </sequential>
+        </macrodef>
+    </target>
+
+    <target name="-pre-init">
+        <!-- Empty target for customization -->
+    </target>
+
+    <target name="-init-private">
+        <property file="nbproject/private/private.properties"/>
+    </target>
+
+    <target name="-do-init">
+        <available file="${build.web.dir}/WEB-INF/web.xml" property="web.xml.exists"/>
+    </target>
+
+    <target name="-post-init">
+        <!-- Empty target for customization -->
+    </target>
+
+    <target name="-init" depends="-pre-init,-init-private,-do-init,-post-init,-init-macrodef-property"/>
+
+    <!-- Compile -->
+    <target name="-pre-compile">
+        <!-- Empty target for customization -->
+    </target>
+
+    <target name="-do-compile" depends="-init">
+        <mkdir dir="${build.classes.dir}"/>
+        <javac srcdir="${src.dir}"
+               destdir="${build.classes.dir}"
+               debug="true"
+               deprecation="${javac.deprecation}"
+               encoding="${source.encoding}"
+               source="${javac.source}"
+               target="${javac.target}"
+               includeantruntime="false">
+            <classpath refid="compile.classpath"/>
+            <compilerarg line="${javac.compilerargs}"/>
+        </javac>
+    </target>
+
+    <target name="-post-compile">
+        <!-- Empty target for customization -->
+    </target>
+
+    <target name="compile" depends="-pre-compile,-do-compile,-post-compile"
+            description="Compile project sources.">
+    </target>
+
+    <!-- Copy web content -->
+    <target name="-do-copy-web-content" depends="-init">
+        <mkdir dir="${build.web.dir}"/>
+        <copy todir="${build.web.dir}">
+            <fileset dir="${web.docbase.dir}"/>
+        </copy>
+    </target>
+
+    <!-- Build -->
+    <target name="-pre-dist">
+        <!-- Empty target for customization -->
+    </target>
+
+    <target name="-do-dist" depends="-init,-do-copy-web-content,compile">
+        <mkdir dir="dist"/>
+        <jar destfile="dist/${war.name}" compress="${war.compress}">
+            <fileset dir="${build.web.dir}"/>
+            <metainf dir="${build.web.dir}/WEB-INF" includes="MANIFEST.MF" erroronmissingdir="false"/>
+        </jar>
+    </target>
+
+    <target name="-post-dist">
+        <!-- Empty target for customization -->
+    </target>
+
+    <target name="dist" depends="-pre-dist,-do-dist,-post-dist"
+            description="Build distribution (WAR).">
+    </target>
+
+    <target name="default" depends="dist" description="Build whole project."/>
+
+    <!-- Clean -->
+    <target name="clean" description="Clean build products.">
+        <delete dir="${build.dir}"/>
+        <delete dir="dist"/>
+    </target>
+
+    <target name="-post-clean">
+        <!-- Empty target for customization -->
+    </target>
+
+</project>

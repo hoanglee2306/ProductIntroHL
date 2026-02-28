@@ -1,0 +1,4 @@
+db.driver=com.microsoft.sqlserver.jdbc.SQLServerDriver
+db.url=jdbc:sqlserver://HOANGLEE\\SQLEXPRESS;databaseName=ProductIntro
+db.user=sa
+db.password=YOUR_PASSWORD_HERE

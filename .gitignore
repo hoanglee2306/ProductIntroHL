@@ -1,0 +1,16 @@
+# NetBeans build output
+build/
+dist/
+nbproject/private/
+
+# IDE files
+*.class
+*.jar
+*.war
+
+# Database credentials (copy db.properties.template to db.properties and fill in credentials)
+src/java/db.properties
+
+# OS files
+.DS_Store
+Thumbs.db
